@@ -1,0 +1,358 @@
+\documentclass[a4paper]{article}
+
+\input{packages.tex}
+\fancyfoot[c]{\thepage}
+
+\title{Classical Mechanics}
+\author{Devansh Shukla}
+\date{\today}
+
+\usepackage{sectsty}
+
+\sectionfont{\fontsize{12}{14}\selectfont}
+\subsectionfont{\fontsize{10}{12}\selectfont}
+\subsubsectionfont{\fontsize{8}{10}\selectfont}
+
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddtf}[1]{\frac{d #1}{dt}}
+\newcommand{\pdt}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\half}{\frac{1}{2}}
+
+% \renewcommand{\paragraph*[1]{\paragraph*{#1}\noindent\\}
+
+\begin{document}
+
+	\maketitle
+
+	\section*{Calculation of the shortest length in a 2D Eucledian Space: }
+		\noindent
+		
+		$$ l = \int \sqrt{dx^2 dy^2} $$
+		$$ l = \int \sqrt{1 + y'^2} $$
+		$$ {\delta}l = {\delta}\int \sqrt{1 + y'^2} $$
+		$$ l \rightarrow l + O(\delta y^2) $$
+
+		% $$ \therefore generally $$
+	
+	\section*{Energies: }
+		\subsection*{Potential Energy}
+			Energy associated with the body/particle due to virtue of its position or configuration.
+		\subsection*{Kinetic Energy}
+			Energy associated with the body/particle due to virtue of its motion.
+
+	\section*{Generalized Coordinates: }
+
+		\noindent
+		Independent Coordinates
+
+	\section*{Action Priciple: Euler-Lagrange Equation }
+		
+		\noindent
+		
+		Action is defined by $S = \int_a^b \Lagr(q, \dot{q}, t) dt$ where $\Lagr$ is called the Lagrangian and is defined to be a function of $q$, $\dot{q}$, and $t$. \hfill \\
+
+		Suppose, if we assume Action be a line and if we introduce infintisimal variation in it, then the variation of the Action will only be Zero for extremum positions.
+
+		$$ \delta S = \delta \int \Lagr(q, \dot(q), t) dt $$
+
+		Since, $\delta$ and $\int$ commute, the position of both can be interchanged.
+
+		$$ \delta S = \int \delta \Lagr(q, \dot(q), t) dt $$
+
+		From the first principles,
+
+		$$ \delta S = \int dt \frac{\partial\Lagr}{\partial q}\delta q + \frac{\partial\Lagr}{\partial\dot{q}}\delta \dot{q} + \frac{\partial\Lagr}{\partial t}\delta t) $$
+
+		Assuming, the $\delta t$ is $0$.
+
+		$$ \delta S = \int dt \frac{\partial\Lagr}{\partial q}\delta q + \frac{\partial\Lagr}{\partial\dot{q}}\delta \dot{q} $$
+
+		But, $\delta S = 0$
+
+		$$ \therefore \int dt \frac{\partial\Lagr}{\partial q}\delta q + \frac{\partial\ Lagr}{\partial\dot{q}}\delta \dot{q} = 0 $$
+
+		$$ \int dt \frac{\partial\Lagr}{\partial q}\delta q + \frac{\partial\ Lagr}{\partial\dot{q}}\delta \frac{dq/dt} = 0 $$
+		
+		Since, $\delta$ and $\frac{d}{dt}$ commute,
+
+		$$ \int dt \frac{\partial\Lagr}{\partial q}\delta q + \frac{\partial\ Lagr}{\partial\dot{q}}\ddt\delta q = 0 $$
+
+		$$Using,\ \frac{\partial\Lagr}{\partial \dot{q}}\frac{d}{dt}\delta q = \ddt(\frac{\partial\Lagr}{\partial\dot{q}}\delta q) - \ddt(\frac{\partial\Lagr}{\partial\dot{q}}) \delta q $$
+
+		$$ \int dt \frac{\partial\Lagr}{\partial q}\delta q + \ddt(\frac{\partial\Lagr}{\partial\dot{q}}\delta q) - \ddt(\frac{\partial\Lagr}{\partial\dot{q}}) \delta q = 0 $$
+
+		For Integral from a to b, $\int_a^b dt \delta q = 0$, then
+
+		$$ \int_a^b dt \frac{\partial\Lagr}{\partial q}\delta q - \ddt(\frac{\partial\Lagr}{\partial\dot{q}}) \delta q = 0 $$
+		
+		Diff both sides by $\ddt$,
+
+		\begin{equation}
+			\frac{\partial\Lagr}{\partial q}\delta q - \ddt(\frac{\partial\Lagr}{\partial\dot{q}}) \delta q = 0 \label{eq_E-L}
+		\end{equation}
+
+		Obtained is nothing but the Euler-Lagrange Equation.
+		
+		Suppose, $\Lagr$ is not a functin of q(Generally, the potential term is zero), 
+		$$\implies \frac{\partial\Lagr}{\partial q} = 0 $$
+		$$\therefore \ddt\frac{\partial\Lagr}{\partial \dot{q}} = 0 $$
+		$$\implies \frac{\partial\Lagr}{\partial \dot{q}} = k\ \ where\ k\ is\ a\ constant$$ 
+
+		Suppose, $\Lagr$ is not a function of $\dot{q}$(Generally, the Kinetic Energy term is Zero), then
+		$$ \ddot{q}\pdt{L}{\dot{q}} + \dot{q}\pdt{L}{q} - \ddt(\dot{q}\pdt{L}{\dot{q}}) = 0$$
+
+	\section*{Conditional Variation: }
+		
+		\noindent
+
+		Suppose $ I = \int_a^b F(y, y', x) dx $ with Constrint $ J = \int_a^b G(y, y', x) dx $, then, \hfill \\
+
+		Consider, $ K = I + \lambda J $
+		$$\therefore K = \int_a^b (F(y, y', x) + \lambda G(y, y', x)) dx $$
+		Since, constrain (J) is a fixed function, then $\delta J =0 $.
+		$$\implies \delta K = \delta I $$
+
+		$$ \Lagr = F(y, y', x) + \lambda G(y, y', x) $$ where $\lambda$ is underdetermined Lagrangian constant.
+
+	\section*{Conservation Laws and Symmetries: }
+
+		\noindent
+
+		\paragraph*{Nother's Theorem}
+			For every symmetry, there always exists a conserved quantity.
+		
+		If a $\Lagr$ does not expcilitly depend on a coordinate $\rightarrow$ Conservation Law.
+
+		\subsection*{Translation Symmetry: }
+
+			\noindent
+
+			Suppose, a particle is at $q_i$ with a velocity of $\dot{q_i}$ at t and has $\Lagr = k\dot{q_i}^2$.
+			Consider a coordinate transformation where $q_i^* = q_i + \delta$, where $\delta$ is an infintisimal variation, then
+			
+			$$ q_i^* = q_i + \delta $$
+			$$ \dot{q_i^*} = \dot{q_i} $$
+			$$\therefore \delta \Lagr = 0 $$
+
+			By applying the Euler-Lagrange Eq., 
+
+			$$ \pdt{L}{\dot{q_i}} = 2k\dot{q_i} = 0 $$
+			$$\implies \dot{P_i} = 0 $$
+
+			$$ P_i = Constant $$
+
+			Thus, Linear Momentum is conserved.
+
+		\subsection*{Rotational Symmetry: }
+
+			\noindent
+
+			Suppose, a particle is at x,y has a $\Lagr = k (\dot{x}^2 + \dot{y}^2)$, where $ k = \half m $ \todo{Check With Potential too.}
+
+			Consider a rotation by $\delta$ angle, then
+
+			$$ x' = x\cos{\delta} + y\sin{\delta} $$
+			$$ y' = -x\sin{\delta} + y\cos{\delta} $$
+
+			Assuming, $\delta$ to be infintisimal, then
+
+			$$ \sin{\delta} \sim \delta\ and\ \cos{\delta} \sim 1 $$
+
+			$$\therefore x' = x + y\delta\ and\ y' = -x\delta + y $$
+
+			\todo{To be Completed}
+
+		\subsection*{Generalization: }
+
+			\noindent
+
+			Assuming, $q_i$ and $\dot{q_i}$ as the generalized coordinates.
+
+			Suppose, a variation is brought in $q$,
+			$$ \delta q = f_i(q) \delta $$ where $\delta$ is nothing but a small change, and is a constant. \hfill \\
+			Consider $\epsilon = \delta$ to reduce the clutter in notation.
+
+			It is to be noted that this infintisimal change can be stacked up to form a finite change, still these eqs will hold up, since, if $V(x, y)$ is the potential and $\delta V = \pdt{V}{x}\delta x = 0$, $\implies \pdt{V}{x}$ is $0$ at all points.
+
+			Now,
+
+			\begin{eqnarray}
+				\delta q = f_i(q) \epsilon \label{eq_q} \\
+				\delta \dot{q} = \ddt(f_i(q) \epsilon) \label{eq_dotq}
+			\end{eqnarray}
+			
+			Then,
+
+			$$ \delta \Lagr = \pdt{\Lagr}{q_i}\delta q_i + \pdt{\Lagr}{\dot{q_i}}\delta \dot{q_i} + \pdt{\Lagr}{t} \delta t $$
+			Assuming, $\Lagr$ is Independent of time. (Assuming time symmetry)
+
+			$$ \delta \Lagr = \pdt{\Lagr}{q_i}\delta q_i + \pdt{\Lagr}{\dot{q_i}}\delta \dot{q_i} $$
+			Since, $\pdt{\Lagr}{\dot{q}}$ is nothing but the cannonical conjugate of Momentum and $\pdt{\Lagr}{q_i}=\ddt \pdt{\Lagr}{\dot{q}}$\eqref{eq_E-L}
+
+			\begin{equation}
+				\delta \Lagr = \dot{P_i}\delta q_i + P_i \delta \dot{q_i} \label{eq_var_L}
+			\end{equation}
+
+			Using, \eqref{eq_q} and \eqref{eq_dotq}
+
+			$$ \delta \Lagr = \dot{P_i} f_i(q) \epsilon + P_i \ddt(f_i(q)\epsilon) $$
+
+			$$ \delta \Lagr = \epsilon \ddt(P_i f_i(q)) $$
+			
+			Assuming, there is a symmetry, then $\delta \Lagr = 0$,
+
+			$$\implies \epsilon \ddt{P_i f_i(q)} = 0$$
+
+			$$ \ddt{P_i f_i(q)} = 0 $$
+
+			Therefore, the \textbf{conserved quantity} is,
+
+			\begin{equation}
+				Q = P_i f_i(q) \label{eq_conserved_Q}
+			\end{equation}
+		
+		\subsection*{Time Symmetry: }
+			\noindent \\
+
+			% When $\Lagr$ doesn't expcilitly depend upon $t$, or $\Lagr = \Lagr(q, \dot{q}))$.
+
+			% $$ \ddt(\Lagr) = \pdt{\Lagr}{q}\dot{q} + \pdt{\Lagr}{\dot{q}} \ddot{q} $$
+
+			% But, since $ P = \pdt{\Lagr}{\dot{q}} $ and $ \dot{P} = \pdt{\Lagr}{q} $,
+
+			% $$ \ddt(\Lagr) = \dot{P} q + P \ddot{q} $$
+
+			% $$ \ddt(\Lagr) = \ddt(P \dot{q}) $$
+
+			% Therefore, the conserved quantity is, 
+			% \begin{equation}
+			% 	\ddt(\Lagr - P \dot{q}) = 0
+			% \end{equation}
+
+			% which is nothing but the total energy, called Hamiltonian.
+
+			% $$ -H = \Lagr - P \dot{q} $$
+			% \begin{equation}
+			% 	\implies H = P \dot{q} - \Lagr
+			% \end{equation}
+
+			When $\Lagr$ doesn't expcilitly depend upon $t$, or $\Lagr = \sum_i \Lagr(q_i, \dot{q_i}))$. ($\sum_i$ is ommited in later text to reduce the clutter)
+
+			$$ \ddtf{\Lagr} = \pdt{\Lagr}{q_i}\dot{q_i} + \pdt{\Lagr}{\dot{q_i}} \ddot{q_i} $$
+
+			But, since $ P_i = \pdt{\Lagr}{\dot{q_i}} $ and $ \dot{P_i} = \pdt{\Lagr}{q_i} $,
+
+			$$ \ddtf{\Lagr} = \dot{P_i} q_i + P_i \ddot{q_i} $$
+
+			$$ \ddtf{\Lagr} = \ddt(P_i \dot{q_i}) $$
+
+			Therefore, the conserved quantity is,
+
+			\begin{equation}
+				\ddt(\Lagr - P_i \dot{q_i}) = 0
+			\end{equation}
+
+			which is nothing but the total energy, called Hamiltonian.
+
+			$$ -H = \Lagr - P_i \dot{q_i} $$
+			\begin{equation}
+				\implies H = P_i \dot{q_i} - \Lagr
+			\end{equation}
+
+
+			\subsubsection*{Hamiltonian of a particle moving linearly in a potential field: }
+				\noindent \\
+
+				For such a particle, $\Lagr = \half m \dot{x}^2 - V(x)$, where $V(x)$ is the potential energy at position $x$.
+
+				$$ \therefore H = m\dot{x}^2 - \half m \dot{x}^2 + V(x) $$
+				$$ \implies H = \half m \dot{x}^2 + V(x) $$
+
+			\subsubsection*{Assuming Time Dependence: }
+				\noindent \\
+
+				Suppose, the $\Lagr$ depends upon time.
+				% Assume a harmonic oscillator, with spring constant which depends upon time.
+
+				% $$ \Lagr = \half m \dot{x}^2 - \half k(t) x^2 $$
+
+				% $$ \therefore \ddtf{\Lagr} = \pdt{\Lagr}{q}\dot{q} + \pdt{\Lagr}{\dot{q}}\ddot{q} + \pdt{\Lagr}{t} $$
+				% $$ \implies \ddtf{\Lagr} = \ddt(P \dot{q}) + \pdt{\Lagr}{t} $$
+
+				% $$ \ddtf{\Lagr - P \dot{q}} = \pdt{\Lagr}{t} $$
+
+				% \begin{equation}
+				% 	\ddtf{H} = - \pdt{\Lagr}{t}
+				% \end{equation}
+
+				$$ \therefore \ddtf{\Lagr} = \pdt{\Lagr}{q_i}\dot{q_i} + \pdt{\Lagr}{\dot{q_i}}\ddot{q_i} + \pdt{\Lagr}{t} $$
+				$$ \implies \ddtf{\Lagr} = \ddt(P_i \dot{q_i}) + \pdt{\Lagr}{t} $$
+
+				$$ \ddtf{\Lagr - P_i \dot{q_i}} = \pdt{\Lagr}{t} $$
+
+				\begin{equation}
+					\ddtf{H} = - \pdt{\Lagr}{t}
+				\end{equation}
+
+
+	\paragraph*{Lagrangian in a Rotational Transformation: }\noindent\hfill\\
+		 
+		Suppose, a particle is at x,y has a $\Lagr = k (\dot{x}^2 + \dot{y}^2)$, where $ k = \half m $.
+
+		Consider a coordinate system, {x', y'}, with the same origin but rotating with $\omega$ angular velocity.
+
+		Therefore, for the transformation eqs. will be,
+
+		\begin{eqnarray}
+			x' = x\cos{\omega t} + y\sin{\omega t}\label{eq:rot1} \\
+			y' = -x\sin{\omega t} + y\cos{\omega t}\label{eq:rot2}
+		\end{eqnarray}
+		
+
+		Using \eqref{eq:rot1} and \eqref{eq:rot2},
+
+		\begin{equation}
+			\Lagr = \half m (\dot{x}^2 + \dot{y}^2) + \half m \omega^2(x^2 + y^2) + m \omega (\dot{x}y - x\dot{y})
+		\end{equation}
+
+		Since, $ \Lagr = T - V $, the first term refers to the original $\Lagr$ which is nothing but the Kinetic Energy, the second terms seems to be similar to Potential Energy and the third term corresponds to Correlios Force.
+
+
+	\section*{Hamiltonian: }
+		\noindent \hfill
+
+		Consider a $\Lagr = \Lagr(q, \dot(q), t)$.
+
+		Then, then $H$ is defined by, 
+
+		\begin{equation}
+			H = \sum_i P_i \dot{q_i} - \Lagr
+		\end{equation}
+
+		For small variation in $H$,
+		\begin{equation}
+			\delta H = \pdt{H}{P} \delta P + \pdt{H}{q}\delta q \label{eq_var_H}
+		\end{equation}
+		$$ \delta H = \sum_i \delta P_i\dot{q_i} - \delta \Lagr $$
+		$$ \delta H = \sum_i \delta(P_i) \dot{q_i} + P_i\delta(\dot{q_i}) - \pdt{\Lagr}{q_i}\delta q_i - \pdt{\Lagr}{\dot{q_i}}\delta \dot{q_i} $$
+
+		Using \eqref{eq_var_L}, the $2nd$ and $4th$ turn cancels each other out, 
+
+		$$ \delta H = \sum_i \dot{q_i} \delta(P_i) - \dot{P_i} \delta(q_i) $$
+
+		Comparing this equation, with \eqref{eq_var_H}, ({Dropping $\sum$ notation to increase clarity.})
+
+		\begin{eqnarray}
+			\pdt{H}{P} = \dot{q} \\
+			\pdt{H}{q} = -\dot{P}
+		\end{eqnarray}
+
+		\paragraph*{Note:}
+			The no. of Hamiltonian equations is double the Lagrangian equations. \\
+			The Hamiltonian eqs are $1st$ Order Differential Equations where as the Lagrangian eqs are $2nd$ Order.
+
+
+
+
+\end{document}
