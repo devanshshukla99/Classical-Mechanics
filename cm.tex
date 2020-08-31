@@ -148,7 +148,7 @@
 
 			\noindent
 
-			Suppose, a particle is at x,y has a $\Lagr = k (\dot{x}^2 + \dot{y}^2)$, where $ k = \half m $ \todo{Check With Potential too.}
+			Suppose, a particle is at x,y has a $\Lagr = k (\dot{x}^2 + \dot{y}^2) - V(x^2 + y^2)$, where $ k = \half m $ \todo{Check With Potential too.}
 
 			Consider a rotation by $\delta$ angle, then
 
@@ -161,8 +161,38 @@
 
 			$$\therefore x' = x + y\delta\ and\ y' = -x\delta + y $$
 
-			\todo{To be Completed}
+			Hence, the variation in $x$ is $\delta x = y \delta$ and variation in $y$ is $\delta y = -x \delta $
 
+			$$ \delta \dot{x} = y \delta\ and\ \delta \dot{y} = - x \delta $$
+
+			Therefore, the variation in $x^2 + y^2$is
+			
+			\begin{equation}
+				\begin{split}	
+					\delta (x^2 + y^2) & = 2 x \delta x + 2y \delta y \\
+					&= 2 x y \delta - 2 x y \delta  \\
+					& = 0
+				\end{split}
+			\end{equation}
+			
+			Hence, the variation in $V$ should also be $0$.
+
+			For Variation in the Kinetic Term,
+
+			\begin{equation}
+				\begin{split}	
+					\delta (\dot{x^2} + \dot{y^2}) & = 2 \dot{x} \delta \dot{x} + 2 \dot{y} \delta \dot{y} \\
+					& = 2 \dot{x} \dot{y} \delta - 2 \dot{x} \dot{y} \delta \\
+					& = 0
+				\end{split}
+			\end{equation}
+			
+			Hence, the variation is Kinetic Term is also Zero.
+
+			Therefore, Variation in $\Lagr$ is Zero.
+
+			Thus, for infinitisimal rotation of the system, the Lagrangian is Invarient.
+			
 		\subsection*{Generalization: }
 
 			\noindent
