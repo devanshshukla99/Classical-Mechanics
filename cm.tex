@@ -21,6 +21,13 @@
 
 % \renewcommand{\paragraph*[1]{\paragraph*{#1}\noindent\\}
 
+\usepackage{titlesec}
+\titleclass{\subsubparagraph}{straight}[\subparagraph]
+\newcounter{subsubparagraph}
+\renewcommand{\thesubsubparagraph}{\Alph{subsubparagraph}}
+\titleformat{\subsubparagraph}[runin]{\normalfont\normalsize\bfseries}{\thesubsubparagraph}{1em}{}
+\titlespacing*{\subsubparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
 \begin{document}
 
 	\maketitle
