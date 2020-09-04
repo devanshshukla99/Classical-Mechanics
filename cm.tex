@@ -72,7 +72,140 @@
 	\section*{Constraints: }
 		
 		\noindent
-		Independent Coordinates
+
+		A Constraint is nothing but a limitation on the range of motion of any particle/body, it can restrict the degrees of freedom of the particle/body.
+		\paragraph*{Types of Constraints: }
+
+		\subparagraph*{Holonomic Constraints: }
+			Constraints of the form $f(x_i, t) = 0$ are called holonomic constraints, these can be expressed using an equation. Holonomic constrains restricts the degrees of freedom, suppose a system has $3n$ degrees of freedom and $m$ holonomic constraints then the $dof$ would reduce to $3n - m$.
+			
+			\subsubparagraph*{Examples: }
+
+			\begin{itemize}
+				\item Consider a pendulum with a bob and an inextendable, massless string, then there will be two holonomic constraints, (i) The Length of the string $\sqrt{x^2+y^2}$, (ii) The Motion along $y$ would be zero, $\dot{y} = 0$.
+				\item Consider a small cube which can slide over a wedge, in this case, there will be $1$ holonomic constraint, the cube cannot have motion along the $y$ direction, $\dot{y}=0$.
+				\item In the famous Catenary problem, there will be $1$ holonomic constraint and $2$ boundary conditions, the constraint would be the length of the string.
+			\end{itemize}
+
+		\subparagraph*{Non-Holonomic Constraints: }
+			Constraints not of the form $f(x_i, t) = 0$ are called non-holonomic constraints, these can be expressed using an inequality or by a differential equation which can only be solved by solveing the problem first. These constraints are difficult to solve and require unique approach to each problem. Also, the no. of degrees of freedom remains same in this case.
+
+			\subsubparagraph*{Examples: }
+
+			\begin{itemize}
+				\item A particle confined into a box of length a,b,c , \[\frac{-a}{2}\leq x \leq \frac{a}{2}, \frac{-b}{2}\leq y \leq\frac{b}{2}, \frac{-c}{2}\leq z \leq \frac{c}{2}\]			
+				\item A cylinder of radius R is rolling down a wedge with max height h, the constraint in this case will be the rolling condition $\dot{r} = \dot{\theta} R$.
+			\end{itemize}
+		
+		\subparagraph*{Rheonomous Constraints: }
+			Time Dependent Constraints are called Rheonomous Constraints.
+
+			\subsubparagraph*{Examples: }
+
+			\begin{itemize}
+				\item Gas Expanding/Contracting in a container (Constraint: Volume of the Gas).
+				\item A pendulum whose length varies w.r.t time (Constraint: Length of the pendulum).
+				\item A particle which should cling on to a curve only until a certain time $t=t_1$.
+				% \item 
+			\end{itemize}
+
+		\subparagraph*{Scleronomous Constraints: }
+			Time Independent Constraints are called Scleronomous Constraints.
+
+			\subparagraph*{Examples: }
+
+			\begin{itemize}
+				\item A pendulum with fixed length (Constraint: Length).
+				\item A particle confined to the surface of a parabola (Constraint: Equation of Parabola).
+			\end{itemize}
+
+	\section*{Virtual Work Prinicple and D'Alembert's Principle: }
+
+		\noindent
+		
+		Virtual infinitesimal displacements of a system refers to the change in config of the system when there is some arbitary small change in the coordinates, consistant with the forces and constraints imposed on the system at time instant t. This Virtual Displacement is different from actual displacement which takes time $dt$ to complete. \\
+
+		Virtual Work is basically the work due to the virtual displacement, when the time interval $dt=0$. It provides the work done when the system is static(in equilibrium).
+
+		\textbf{D'Alembert Principle}: The total virtual work of the impressed forces plus the inertial forces vanishes for reversible displacements.
+
+		D'Alembert's Principle provides a more general form of the Hamiltonian Principle with the inclusion of holonomic constraints. It is basically the dynamic version of the static Principle of Virtual Works(since it assumes equilibrium).
+
+		\subsection*{Proof: }
+
+			Consider the system is in equlibrium, then the virual work will be given by the dot product of the total force acting time the virtual displacement,
+
+			$$ W_v = \sum_i \vec{F_i} \cdot \delta \vec{r_i} = 0 $$
+
+			Here, $\vec{F_i}$ is made up of two forces, the applied force $\vec{F_i^a}$ and the force of constraints $\vec{f_i}$,
+
+			Hence, the Virtual Work becomes,
+
+			$$ W_v = \sum_i \vec{F_i^a} \cdot \delta \vec{r_i} + \sum_i \vec{f_i} \cdot \delta \vec{r_i} $$
+
+			We now consider that the net work done due to the forces of constraints is zero, 
+
+			$$ \sum_i \vec{f_i} \delta \vec{r_i} = 0 $$
+
+			Also, since the system is in equilibrium, the virtual work due to the applied forces should be $zero$.
+
+			\begin{equation}
+				\sum_i \vec{F_i^a} \cdot \delta \vec{r_i} = 0 \label{eq_pvw} 
+			\end{equation} 		
+			This is known as the Principle of Virtual Work, 
+			
+			D'Alembert Principle
+			
+			From the 2nd Law of Motion, $\vec{F_i} = \dot{\vec{p_i}}$
+			$$ \implies \vec{F_i} - \dot{\vec{p_i}} = 0 $$
+			
+			This works for the D'Alembert's principle which considers reverse forces,
+
+			From the Principle of Virtual Work,
+				$$ \sum_i ( \vec{F_i} - \dot{\vec{p_i}} = 0 ) $$
+			For, $F_i = F_i^a + f_i$ and considering that the virtual work from the forces of constraints vanishes, 
+
+			$$ \sum_i(\vec{F_i^a} - \dot{\vec{p_i}}) \cdot \delta \vec{r_i} = 0 $$
+			
+			But since the coordinates $\vec{r_i}$ are not independent of each other and are connected by constraints, we consider a set of independent generalised coordinates.
+
+			$$ q_i = f(r_i) $$
+
+			Therefore, the virtual displacement $\delta \vec{r_i}$ is given by,
+
+			$$ \delta r_i = \sum_j \pdt{r_i}{q_j}\delta q_j $$
+
+			Hence, the Virtual Work Becomes,
+
+			$$ W_v = \sum_{i,j} \vec{F_i} \cdot \pdt{r_i}{q_j}\delta q_j $$
+
+			Let, $Q_j = \sum_i \vec{F_i} \cdot \pdt{r_i}{q_j}$, where $Q_j$ are called Generalised Forces(doesn't necessarily have dimensions of force).
+
+			For other term,
+
+			$$ \sum_i \dot{\vec{p_i}} \cdot \delta \vec{r_j}  = \sum_{i,j} m_i \ddot{\vec{r_i}} \cdot \pdt{r_i}{q_j} \delta q_j $$
+
+			On Manupulations,
+
+			$$ \sum_{i,j} m_i \ddot{\vec{r_i}} \cdot \pdt{r_i}{q_j} \delta q_j = \sum_i[ \ddt (m_i \dot{\vec{r_i}}) - m_i \dot{\vec{r_i}} \cdot \ddt(\pdt{\vec{r_j}}{q_j})] $$
+			
+			Since, the order of $\ddt$ and $\pdt{}{}$ can be changed,
+
+			$$ \ddt(\pdt{\vec{r_i}}{q_j}) = \pdt{\vec{v}}{q_j} $$
+
+			Therefore,
+
+			$$ \sum_{i,j} m_i \ddot{\vec{r_i}} \cdot \pdt{r_i}{q_j} \delta q_j = \sum_i[ \ddt (m_i \vec{v_i}) - m_i \vec{v_i} \cdot \pdt{\vec{v_i}}{q_j}] $$
+
+			On Manipulations, 
+
+			$$ \sum_j [ \ddt(\pdt{\sum_i \half m_i v_i^2}{\dot{q_j}})  - \pdt{\sum_i \half m_i v_i^2}{q_j} - Q_j]\delta q_j $$
+
+			On identifing $T = \sum_i \half m_i v_i^2$ as Kinetic Energy, the Equation of D'Alembert's Principle becomes,
+
+			\begin{equation}
+				\sum[\ddt(\pdt{T}{\dot{q_j}}) - \pdt{T}{q_j} - Q_j]\delta q_j = 0 
+			\end{equation}
 
 	\section*{Action Priciple: Euler-Lagrange Equation }
 		
