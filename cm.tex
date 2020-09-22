@@ -125,10 +125,12 @@
 		
 		\subsection*{Virtual Work Principle: }
 			\textbf{Virtual Work is basically the work due to the virtual displacement, when the time interval $dt=0$. It provides the work done when the system is static(in equilibrium).}
+			\textbf{For a system in static equilibrium(Rest), the Virtual Work due to infinitesimal virtual displacement is zero.}
 
 		\subsection*{D'Alembert Principle: } 
 			\textbf{The total virtual work of the impressed forces plus the inertial forces vanishes for reversible displacements.}
-
+			\textbf{For a system in dynamic equilibrium the Virtual Work due to all impressed and inertial forces is zero for infinitesimal virtual displacements.}
+			
 		D'Alembert's Principle provides a more general form of the Hamiltonian Principle with the inclusion of holonomic constraints. It is basically the dynamic version of the static Principle of Virtual Works(since it assumes equilibrium).
 		It isn't Applicable to irreversible forces such as sliding friction and is more general than Hamilton's Principle.
 
@@ -588,5 +590,48 @@
 
 		The conservations of energy directly arises due to symmetry in time, such systems are called conservative systems. \autoref{time_symmetry}
 
+	\section*{Poisson's Brackets}
+		
+		Poisson Brackets are Jacobian w.r.t generalized coordinate and its corresponding cannonical conjugate of momentum.
+
+		\[
+			(f,g) = 
+			\begin{vmatrix}
+				\pdt{f}{q} & \pdt{f}{p} \\
+				\pdt{g}{q} & \pdt{g}{p}
+			\end{vmatrix}
+			\]
+		
+		\subsection*{Some Properties}
+
+			\begin{equation}
+				(f, g) = - (g, f)
+			\end{equation}
+
+			\begin{equation}
+				(f_1 + f_2, g) = (f_1, g) + (f_2, g) \footnote{Comes directly from distributive property of $\partial$}
+			\end{equation}
+
+			\begin{equation}
+				(f_1 f_2, g) = f_2(f_1, g) + f_1(f_2, g) \footnote{Direct result from commutative proper of $\partial$}	
+			\end{equation}
+			
+			\begin{equation}
+				(f, (g, h)) + (h, (f, g)) + (g, (h, f)) = 0	\label{eq_jacobi_identity}
+			\end{equation}
+			
+			\autoref{eq_jacobi_identity} is called the \textbf{Jacobi Identity}.
+		
+
+			\begin{eqnarray}
+				(f, q) = - \pdt{f}{p} \\
+				(f, p) = \pdt{f}{q}
+			\end{eqnarray}
+
+			Hence we find,
+
+			\begin{equation}
+				(q_{\lambda}, q_{\sigma}) = 0, \hspace*{1cm} (p_{\lambda}, p_{\sigma}) = 0, \hspace*{1cm} (q_{\lambda}, p_{\sigma}) = \delta_{\lambda \sigma}
+			\end{equation}
 
 \end{document}
